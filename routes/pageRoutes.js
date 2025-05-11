@@ -19,8 +19,10 @@ router.get('/contact', (req, res) => {
   res.render('pages/contact');
 });
 
-router.get('/thankyou', (req, res) => {
-  res.render('pages/thankyou');
+router.post("/contact", (req, res) => {
+  const { name, email, message } = req.body;
+  console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+  res.render("pages/thankyou", { name }); // Render a thank-you page
 });
 
 module.exports = router;
